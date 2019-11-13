@@ -1,17 +1,18 @@
 <template>
   <el-table
     :data="tableData"
+    :default-sort = "{prop: 'date', order: 'descending'}"
     style="width: 100%">
     <el-table-column 
       v-for="column in columns"
       :prop="column.prop"
+      :sortable="column.sortable"
       :key="column.label"
       :label="column.label"
       :formatter="column.formatter"
       :min-width="column.minWidth">
       <template v-if="column.render" v-slot="scope">
         <span v-html="column.render(scope.row)"></span>
-        <!-- <span v-html="renderTemplate(column.render, scope.row, column.formatter)"></span> -->
       </template>
     </el-table-column>
   </el-table>
@@ -19,15 +20,6 @@
 
 <script>
   export default {
-    props: ['tableData', 'columns'],
-    methods: {
-      renderTemplate (render, row, formatter) {
-        if (formatter && typeof formatter === 'function') {
-          row = Object.assign({}, row, formatter(row))
-        }
-
-        return render(row)
-      }
-    }
+    props: ['tableData', 'columns']
   }
 </script>
