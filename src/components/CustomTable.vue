@@ -1,7 +1,7 @@
 <template>
   <el-table
     :data="tableData"
-    :default-sort = "{prop: 'date', order: 'descending'}"
+    :default-sort="defaultSort"
     style="width: 100%">
     <el-table-column 
       v-for="column in columns"
@@ -20,6 +20,13 @@
 
 <script>
   export default {
-    props: ['tableData', 'columns']
+    props: {
+      tableData: Array,
+      columns: Array,
+      defaultSort: {
+        type: Object,
+        default: {prop: 'date', order: 'descending'}
+      }
+    }
   }
 </script>
