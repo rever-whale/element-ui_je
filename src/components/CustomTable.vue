@@ -25,7 +25,7 @@
       columns: Array,
       defaultSort: {
         type: Object,
-        default: {prop: 'date', order: 'descending'}
+        default: {}
       }
     }
   }

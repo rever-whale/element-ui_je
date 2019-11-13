@@ -2,7 +2,8 @@
   <div>
     <custom-table 
       :tableData="tableData"
-      :columns="columns" />
+      :columns="columns"
+      :defaultSort="{prop: 'date', order: 'descending'}" />
     <origin-table />
   </div>
 </template>
